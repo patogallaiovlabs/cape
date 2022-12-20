@@ -86,7 +86,7 @@ const config: HardhatUserConfig = {
       accounts: { mnemonic: process.env.GOERLI_MNEMONIC },
     },
     localhost: {
-      url: `http://localhost:${process.env.RPC_PORT || 8545}`,
+      url: `http://localhost:${process.env.RPC_PORT || 4444}`,
       timeout: 120000, // when running against hardhat, some tests are very slow
       tags: ["local"],
     },

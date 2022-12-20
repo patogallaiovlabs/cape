@@ -170,6 +170,7 @@ contract CAPE is RootStore, AssetRegistry, ReentrancyGuard {
 
         // NOTE: used for faucet in testnet only, will be removed for mainnet
         deployer = msg.sender;
+        faucetInitialized = true;
     }
 
     /// @notice Allocate native token faucet to a manager. For testnet only.

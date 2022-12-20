@@ -28,7 +28,8 @@ const func: DeployFunction = async function (hre: HardhatRuntimeEnvironment) {
     // Wait for 2 confirmations on public networks.
     waitConfirmations: hre.network.tags.public ? 2 : 1,
     // Avoid deployment failures due to potentially failing `estimateGas` calls.
-    // gasLimit: 10_000_000, // This is better set in hardhat config.networks.<network>.gas
+    gasLimit: 9_600_000, // This is better set in hardhat config.networks.<network>.gas
+    gasPrice: "0x2",
   };
 
   log("Deploy options:", opts);

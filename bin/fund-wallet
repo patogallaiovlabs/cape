@@ -13,4 +13,4 @@ set -euo pipefail
 # address for the local demo environment. The second account is used here in
 # order to avoid affecting the txn count on the first account.
 geth --exec "eth.sendTransaction({from: eth.accounts[1], to: \"$1\", value: $2})" \
-    attach http://127.0.0.1:8545
+    attach http://127.0.0.1:4444

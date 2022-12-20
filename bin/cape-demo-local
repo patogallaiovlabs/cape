@@ -9,12 +9,15 @@
 set -euo pipefail
 
 RED='\033[0;31m'
-GETH_PORT=8545
+GETH_PORT=4444
+# PATO - replace with RSK node
+#GETH_PORT=8545
 
-if nc -z localhost $GETH_PORT 2>&1; then
-    echo -e "${RED}GETH_PORT $GETH_PORT already in use! Aborting"
-    exit 1
-fi
+# PATO - replace with RSK node
+#if nc -z localhost $GETH_PORT 2>&1; then
+#   echo -e "${RED}GETH_PORT $GETH_PORT already in use! Aborting"
+#    exit 1
+#fi
 
 function remove-directory() {
     if [ -n "$1" ] && [ -d "$1" ]; then
@@ -68,7 +71,7 @@ export CAPE_FAUCET_WALLET_PATH="$(mktemp -d -t cape-faucet-wallet-XXXXXXX)"
 export CAPE_FAUCET_NUM_GRANTS=2
 export CAPE_FAUCET_NUM_RECORDS=5
 
-export CAPE_WALLET_PORT_ALICE=50040
+export CAPE_WALLET_PORT_ALICE=60000
 export CAPE_WALLET_STORAGE_ALICE="$(mktemp -d -t cape-wallet-alice-XXXXXXX)"
 export CAPE_WALLET_PORT_BOB=50041
 export CAPE_WALLET_STORAGE_BOB="$(mktemp -d -t cape-wallet-bob-XXXXXXX)"
@@ -91,7 +94,8 @@ export CAPE_FAUCET_MANAGER_MNEMONIC="$CAPE_FAUCET_WALLET_MNEMONIC"
 source <(target/release/faucet-wallet-test-setup)
 
 # Start a go-ethereum/geth node
-env GETH_PERIOD=1 run-geth --verbosity 1 --http.corsdomain "*" &
+# PATO - replace with RSK node
+#env GETH_PERIOD=1 run-geth --verbosity 1 --http.corsdomain "*" &
 
 # Wait for geth to be listening
 wait-port $GETH_PORT

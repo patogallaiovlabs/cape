@@ -1,0 +1,11 @@
+# This file is sourced from the espressosystems/cape-ui repo
+version: "2"
+services:
+  wallet:
+    image: ghcr.io/espressosystems/cape-ui:release
+    ports:
+      - 80:80
+    environment:
+      - REACT_APP_API_URL="http://localhost:50040"
+      - REACT_APP_FAUCET_API_URL="https://faucet.goerli.cape.tech"
+      - REACT_APP_DEFAULT_NETWORK="5"
